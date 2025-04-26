@@ -17,10 +17,13 @@ if os.path.exists(csv_file):
     # Lê o arquivo CSV em um DataFrame
     df = pd.read_csv(csv_file)
 
+    st.markdown("### Até aqui importamos as bibliotecas e subimos o arquivo CSV e verificamos se ele existe no projeto")
+
      # Exibe os dados carregados
     st.markdown("### Dados de Vendas Carregados")
     st.dataframe(df.head(10))
 
+    st.markdown("### Ajustamos os dados de DATA para objeto e colocamos no formato padrão, utilizando barra (/)")
       # Conversão da coluna "Date" para formato de data
    
     df['Date_Sold'] = (
@@ -31,6 +34,8 @@ if os.path.exists(csv_file):
 
 # Ajuste no formato de data
     df['Date_Sold'] = pd.to_datetime(df['Date_Sold'], format='%Y/%m/%d')
+
+    st.markdown("### Adicionamos os filtros que serão utilizados.")
 
     # Filtros de seleção
     st.sidebar.header("Filtros")
@@ -48,6 +53,7 @@ if os.path.exists(csv_file):
     st.markdown("### Dados Filtrados")
     st.dataframe(filtered_df)
 
+    st.markdown("### Destacamos os dados principais para chamar atenção da gestão")
 
 # Insights gerais
     st.markdown("## Insights Gerais")
@@ -56,6 +62,8 @@ if os.path.exists(csv_file):
     st.write(f"**Total de Vendas:** R$ {Total_sales:,.2f}")
     st.write(f"**Total de Unidades Vendidas:** {Quantity_Sold}")
     
+    st.markdown("### Deixei a explicação do que é o streamlit para me recordar em projetos futuros")
+
      # Explicação do Streamlit
     st.markdown("## Sobre o Streamlit")
     st.write("""
